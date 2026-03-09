@@ -1,1 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- LinkedIn / Social Media Preview -->
+  <meta property="og:title" content="Taiba Ali — Strategy Associate" />
+  <meta property="og:description" content="Independent strategic analyses across Technology, Healthcare, and Financial Services. Corporate Strategy · Growth Strategy · Financial Analysis." />
+  <meta property="og:url" content="https://taibaali.xyz" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Taiba Ali Portfolio" />
+  <meta name="description" content="Independent strategic analyses across Technology, Healthcare, and Financial Services. Corporate Strategy · Growth Strategy · Financial Analysis." />
+  <meta name="author" content="Taiba Ali" />
+<title>Taiba Ali — Strategy Associate</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0e0e; --bg2: #141414;
+    --border: rgba(255,255,255,0.08);
+    --accent: #c9a96e; --text: #e8e2d9;
+    --text-dim: #8a8278; --text-mid: #b8b0a4; --white: #f5f0e8;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: 'Jost', sans-serif; font-weight: 300; line-height: 1.7; overflow-x: hidden; cursor: none; }
 
+  /* CURSOR */
+  .cursor-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); }
+  .cursor-ring { width: 36px; height: 36px; border: 1px solid rgba(201,169,110,0.45); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: width 0.25s, height 0.25s, border-color 0.25s; }
+  .cursor-ring.hovered { width: 54px; height: 54px; border-color: rgba(201,169,110,0.75); }
+
+  .hero-quote {
+    margin-top: 2.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-mid);
+    letter-spacing: 0.03em;
+    line-height: 1.6;
+    max-width: 700px;
+    text-align: center;
+    animation: fadeUp 0.8s 1.1s both;
+  }
+  .hero-quote em { font-style: italic; color: var(--accent); }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.5rem 4rem; display: flex; justify-content: space-between; align-items: center; background: rgba(14,14,14,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--text-mid); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; transition: color 0.3s; }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes pulse { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
+
+  .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 2rem; position: relative; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(139,111,71,0.13) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 20% 80%, rgba(201,169,110,0.06) 0%, transparent 60%); }
+  .hero-line { width: 100px; height: 1px; background: linear-gradient(to right, transparent, var(--accent), transparent); margin-bottom: 1.5rem; animation: fadeIn 0.8s 0.2s both; }
+  .hero-subtitle { font-size: 0.75rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; animation: fadeUp 0.8s 0.4s both; }
+  .hero-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(4rem, 10vw, 8rem); font-weight: 300; line-height: 1; letter-spacing: 0.05em; color: var(--white); animation: fadeUp 0.8s 0.6s both; }
+  .hero-name em { font-style: italic; color: var(--accent); }
+  .hero-tagline { margin-top: 1.5rem; font-size: 0.85rem; letter-spacing: 0.12em; color: var(--text-dim); animation: fadeUp 0.8s 0.8s both; }
+  .hero-stats { margin-top: 4rem; display: flex; gap: 5rem; animation: fadeUp 0.8s 1s both; }
+  .stat { text-align: center; }
+  .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 300; color: var(--accent); line-height: 1; }
+  .stat-label { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-dim); margin-top: 0.4rem; }
+  .hero-scroll { position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; animation: fadeIn 1s 1.4s both; }
+  .scroll-text { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-dim); }
+  .scroll-line { width: 1px; height: 50px; background: linear-gradient(to bottom, var(--accent), transparent); animation: pulse 2s infinite; }
+
+
+  .hero-tagline-quote {
+    margin-top: 3rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(0.9rem, 1.6vw, 1.15rem);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--text-mid);
+    letter-spacing: 0.04em;
+    line-height: 1.6;
+    max-width: 680px;
+    text-align: center;
+    animation: fadeUp 0.8s 1.2s both;
+  }
+  .hero-tagline-quote em { color: var(--accent); font-style: italic; }
+
+  /* SECTIONS */
+  section { max-width: 1200px; margin: 0 auto; padding: 8rem 4rem; }
+  .section-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem; }
+  .section-label::before { content: ''; width: 40px; height: 1px; background: var(--accent); }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; line-height: 1.2; color: var(--white); margin-bottom: 3rem; }
+  .section-title em { font-style: italic; color: var(--accent); }
+  .divider { max-width: 1200px; margin: 0 auto; padding: 0 4rem; height: 1px; background: linear-gradient(to right, transparent, var(--border), transparent); }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .about-text p { color: var(--text-mid); margin-bottom: 1.4rem; font-size: 0.95rem; line-height: 1.9; }
+  .about-text p:first-of-type { font-size: 1.05rem; color: var(--text); }
+  .about-contact { margin-top: 2.5rem; }
+  .about-contact-label { font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  .contact-item { display: flex; align-items: center; gap: 0.75rem; color: var(--text-mid); font-size: 0.9rem; margin-bottom: 0.75rem; text-decoration: none; transition: color 0.3s; }
+  .contact-item:hover { color: var(--accent); }
+  .contact-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+  .about-card { background: var(--bg2); border: 1px solid var(--border); position: relative; overflow: hidden; }
+  .about-card::before { content: ''; position: absolute; top: 0; left: 0; width: 2px; height: 100%; background: linear-gradient(to bottom, var(--accent), transparent); }
+  .focus-item { padding: 2rem 2.5rem; border-bottom: 1px solid var(--border); }
+  .focus-item:last-child { border-bottom: none; }
+  .focus-title { font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+  .focus-desc { color: var(--text-mid); font-size: 0.9rem; line-height: 1.8; }
+
+  /* PROJECTS */
+  .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+  .project-card { background: var(--bg); position: relative; overflow: hidden; transition: background 0.3s; cursor: none; }
+  .project-card:hover { background: var(--bg2); }
+  .project-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--accent); transition: width 0.4s ease; }
+  .project-card:hover::after { width: 100%; }
+  .project-cover { width: 100%; height: 200px; object-fit: cover; object-position: top; display: block; filter: brightness(0.85); transition: filter 0.4s, transform 0.4s; }
+  .project-card:hover .project-cover { filter: brightness(1); transform: scale(1.02); }
+  .project-card-body { padding: 2rem 2.5rem 2.5rem; }
+  .project-num { font-family: 'Cormorant Garamond', serif; font-size: 5rem; font-weight: 300; color: rgba(201,169,110,0.07); position: absolute; top: 185px; right: 1.5rem; line-height: 1; pointer-events: none; user-select: none; }
+  .project-tag { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+  .project-tag::before { content: ''; width: 20px; height: 1px; background: var(--accent); }
+  .project-title { font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; font-weight: 400; color: var(--white); line-height: 1.3; margin-bottom: 0.75rem; }
+  .project-industry { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1.25rem; }
+  .project-desc { color: var(--text-mid); font-size: 0.88rem; line-height: 1.8; margin-bottom: 1.5rem; }
+  .project-tools { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 2rem; }
+  .tool-tag { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.25rem 0.7rem; border: 1px solid var(--border); color: var(--text-dim); }
+  .project-btn { display: inline-flex; align-items: center; gap: 0.75rem; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-mid); background: none; border: 1px solid var(--border); cursor: none; padding: 0.7rem 1.4rem; transition: all 0.3s; font-family: 'Jost', sans-serif; font-weight: 300; position: relative; overflow: hidden; z-index: 1; }
+  .project-btn::before { content: ''; position: absolute; inset: 0; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; z-index: -1; }
+  .project-btn:hover { color: #0e0e0e; border-color: var(--accent); }
+  .project-btn:hover::before { transform: scaleX(1); }
+  .project-btn svg { transition: transform 0.3s; }
+  .project-btn:hover svg { transform: translateX(4px); }
+
+  /* EXPERTISE */
+  .full-width-bg { background: var(--bg2); padding: 8rem 0; }
+  .full-width-bg .inner { max-width: 1200px; margin: 0 auto; padding: 0 4rem; }
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+  .skills-grid-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .skill-group-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 300; color: var(--white); margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+  .skill-list { list-style: none; }
+  .skill-list li { display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); color: var(--text-mid); font-size: 0.88rem; transition: color 0.3s, padding-left 0.3s; }
+  .skill-list li:hover { color: var(--text); padding-left: 0.5rem; }
+  .skill-list li::before { content: ''; width: 4px; height: 4px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
+
+  /* ACHIEVEMENTS */
+  .achievement-item { display: flex; gap: 2rem; align-items: flex-start; padding: 2rem; border-left: 1px solid var(--border); margin-bottom: 1rem; transition: background 0.3s, border-color 0.3s; }
+  .achievement-item:hover { background: rgba(201,169,110,0.03); border-color: var(--accent); }
+  .achievement-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: rgba(201,169,110,0.3); line-height: 1; flex-shrink: 0; width: 2.5rem; }
+  .achievement-text { color: var(--text-mid); font-size: 0.95rem; line-height: 1.7; }
+
+  /* EXPERIENCE & EDUCATION */
+  .exp-edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .exp-edu-heading { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 300; color: var(--white); margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+  .exp-edu-heading em { font-style: italic; color: var(--accent); }
+  .exp-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); transition: background 0.3s; }
+  .exp-item:last-child { border-bottom: none; }
+  .exp-date { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
+  .exp-role { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--white); font-weight: 400; }
+  .exp-company { font-size: 0.78rem; color: var(--text-dim); letter-spacing: 0.1em; margin-top: 0.2rem; }
+
+  /* FOOTER */
+  .footer-wrap { border-top: 1px solid var(--border); max-width: 1200px; margin: 0 auto; padding: 3rem 4rem; display: flex; justify-content: space-between; align-items: center; }
+  .footer-name { font-family: 'Cormorant Garamond', serif; font-size: 1rem; letter-spacing: 0.2em; color: var(--text-dim); }
+  .footer-copy { font-size: 0.7rem; color: var(--text-dim); }
+
+  /* MODAL */
+  .modal-overlay { position: fixed; inset: 0; z-index: 1000; background: rgba(8,8,8,0.97); opacity: 0; pointer-events: none; transition: opacity 0.4s ease; overflow-y: auto; }
+  .modal-overlay.active { opacity: 1; pointer-events: all; }
+  .modal-inner { max-width: 860px; margin: 0 auto; padding: 5rem 4rem 8rem; transform: translateY(20px); transition: transform 0.4s ease; }
+  .modal-overlay.active .modal-inner { transform: translateY(0); }
+  .modal-close { position: fixed; top: 2rem; right: 3rem; background: none; border: 1px solid var(--border); color: var(--text-mid); width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; cursor: none; font-size: 1.1rem; transition: all 0.3s; z-index: 1001; font-family: 'Jost', sans-serif; }
+  .modal-close:hover { border-color: var(--accent); color: var(--accent); }
+  .modal-tag { font-size: 0.6rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  .modal-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 300; color: var(--white); line-height: 1.2; margin-bottom: 0.5rem; }
+  .modal-subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--text-dim); font-style: italic; margin-bottom: 2.5rem; }
+  .modal-meta { display: flex; gap: 3rem; flex-wrap: wrap; padding: 2rem 0; margin-bottom: 2.5rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .modal-meta-label { font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.3rem; }
+  .modal-meta-value { font-size: 0.85rem; color: var(--text-mid); }
+  .modal-section { margin-bottom: 2.5rem; }
+  .modal-section-title { font-size: 0.62rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem; }
+  .modal-section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .modal-body { color: var(--text-mid); line-height: 1.9; font-size: 0.93rem; }
+  .modal-highlight { background: rgba(201,169,110,0.06); border-left: 2px solid var(--accent); padding: 1.25rem 1.75rem; margin: 1.5rem 0; color: var(--text); font-size: 0.95rem; line-height: 1.75; }
+  .modal-tools { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .modal-tool { font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.35rem 0.9rem; border: 1px solid var(--border); color: var(--text-dim); }
+
+  /* MODAL GALLERY */
+  .modal-gallery { margin-bottom: 2.5rem; }
+  .gallery-label { font-size: 0.62rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 1rem; }
+  .gallery-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .gallery-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+  .gallery-img { width: 100%; border: 1px solid var(--border); display: block; transition: border-color 0.3s; cursor: zoom-in; }
+  .gallery-img:hover { border-color: var(--accent); }
+
+  /* LIGHTBOX */
+  .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 2000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+  .lightbox.open { opacity: 1; pointer-events: all; }
+  .lightbox img { max-width: 92vw; max-height: 90vh; object-fit: contain; }
+  .lightbox-close { position: fixed; top: 1.5rem; right: 2rem; color: #fff; font-size: 2rem; cursor: none; background: none; border: none; line-height: 1; z-index: 2001; opacity: 0.7; transition: opacity 0.2s; }
+  .lightbox-close:hover { opacity: 1; }
+
+
+  /* MODAL SLIDESHOW */
+  .modal-slideshow { margin-bottom: 2.5rem; }
+  .slideshow-wrap { position: relative; background: #0a0a0a; border: 1px solid var(--border); overflow: hidden; }
+  .slideshow-track { display: flex; transition: transform 0.45s cubic-bezier(0.4,0,0.2,1); }
+  .slideshow-slide { flex: 0 0 100%; }
+  .slideshow-slide img { width: 100%; height: auto; display: block; max-height: 520px; object-fit: contain; }
+  .slideshow-btn {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(14,14,14,0.85); border: 1px solid var(--border);
+    color: var(--accent); width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: none; font-size: 1.1rem; z-index: 10;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .slideshow-btn:hover { background: rgba(201,169,110,0.15); border-color: var(--accent); }
+  .slideshow-btn.prev { left: 0.75rem; }
+  .slideshow-btn.next { right: 0.75rem; }
+  .slideshow-dots { display: flex; justify-content: center; gap: 0.5rem; padding: 0.75rem 0 0; }
+  .slideshow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border); border: 1px solid var(--text-dim); cursor: none; transition: background 0.2s; }
+  .slideshow-dot.active { background: var(--accent); border-color: var(--accent); }
+  .slideshow-counter { text-align: center; font-size: 0.62rem; letter-spacing: 0.2em; color: var(--text-dim); margin-top: 0.4rem; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .skills-grid-bottom { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    nav { padding: 1.2rem 1.5rem; } .nav-links { display: none; }
+    section { padding: 5rem 1.5rem; }
+    .about-grid, .projects-grid, .skills-grid, .skills-grid-bottom, .exp-edu-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 2.5rem; }
+    .modal-inner { padding: 4rem 1.5rem 6rem; } .modal-close { right: 1.5rem; }
+    .footer-wrap { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
+    .full-width-bg .inner { padding: 0 1.5rem; } .divider { padding: 0 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Taiba A.</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#experience">Experience</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="max-width:100%;padding:0 2rem;">
+  <div class="hero-bg"></div>
+  <div class="hero-line"></div>
+  <p class="hero-subtitle">Strategy Associate</p>
+  <h1 class="hero-name">Taiba <em>Ali</em></h1>
+  <p class="hero-tagline">Corporate Strategy &middot; Growth Strategy &middot; Financial Analysis<br>Healthcare &middot; Financial Services &middot; Technology</p>
+  <p class="hero-tagline-quote">“The most interesting strategic questions are never about more data &mdash; they are about <em>asking better questions</em>”</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">6+</div><div class="stat-label">Independent Projects</div></div>
+    <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Industries Covered</div></div>
+    <div class="stat"><div class="stat-num">2+</div><div class="stat-label">Years in Strategy</div></div>
+  </div>
+  <div class="hero-scroll"><div class="scroll-text">Scroll</div><div class="scroll-line"></div></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="section-label">About</div>
+      <h2 class="section-title">Rigorous thinking applied to decisions that <em>shape organisations and markets</em></h2>
+      <p>I'm interested in the decisions that quietly determine whether companies compound value or slowly destroy it.</p>
+      <p>Growing up in India, I became curious about why similar organisations operating in the same markets often produce completely different outcomes. That curiosity gradually turned into a way of thinking: break complex problems into first principles, structure the key questions, and test them with real data.</p>
+      <p>My academic training in life sciences taught me analytical discipline. My professional experience in strategy and analytics pushed that discipline into business problems &mdash; from identifying growth levers and pricing dynamics to building financial and operational models that help teams make clearer decisions.</p>
+      <p>Alongside my work, I regularly study industries and build independent strategic analyses &mdash; examining capital allocation in healthcare systems, portfolio strategy in technology companies, and profit pool shifts in financial services. For me, the most interesting problems are rarely about more data; they are about asking better questions.</p>
+      <p>Strategy consulting appeals to me because it sits exactly at that intersection &mdash; rigorous thinking applied to decisions that shape organisations and markets.</p>
+      <p>Over the long term, I want to help leaders navigate complex strategic choices where clarity, judgment, and evidence matter equally.</p>
+      <div class="about-contact">
+        <div class="about-contact-label">Contact</div>
+        <a href="/cdn-cgi/l/email-protection#0c786d656e6d6d60653e353c3d4c6b616d6560226f6361" class="contact-item"><span class="contact-dot"></span><span class="__cf_email__" data-cfemail="f682979f9497979a9fc4cfc6c7b6919b979f9ad895999b"><span class="__cf_email__" data-cfemail="700411191211111c194249404130171d11191c5e131f1d">[email&#160;protected]</span></span></a>
+        <a href="https://www.linkedin.com/in/taibaali01" class="contact-item" target="_blank"><span class="contact-dot"></span>LinkedIn &mdash; Taiba A.</a>
+      </div>
+    </div>
+    <div>
+      <div class="about-card">
+        <div class="focus-item">
+          <div class="focus-title">Professional Focus</div>
+          <div class="focus-desc">I work on strategic questions at the intersection of capital allocation, growth strategy, and financial analysis. My approach starts with decomposing the problem &mdash; understanding what truly drives performance, where capital is misallocated, and where durable value can realistically be created.<br><br>Across projects and professional roles in healthcare, financial services, and technology, I analyse how companies deploy capital, capture profit pools, and build sustainable competitive positions. My work sits primarily within corporate strategy, growth strategy, and technology strategy, translating rigorous analysis into clear, actionable recommendations for decision-makers.</div>
+        </div>
+        <div class="focus-item">
+          <div class="focus-title">What I'm Looking For</div>
+          <div class="focus-desc">Interested in roles in strategy consulting, corporate strategy, or technology strategy where structured thinking and analytical rigour can shape decisions that matter.<br><br>Drawn to environments where the bar for thinking is high and the problems are genuinely complex.<br><br>Geographic preference: Global.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Work</div>
+  <h2 class="section-title">Independent <em>Projects</em></h2>
+  <div class="projects-grid">
+
+    <div class="project-card" onclick="openModal('p1')">
+      <img class="project-cover" src="images/img01.png" alt="Cover">
+      <div class="project-card-body">
+        <div class="project-num">01</div>
+        <div class="project-tag">Technology &middot; Corporate Strategy &amp; Portfolio Management</div>
+        <h3 class="project-title">Alphabet Portfolio Strategy: Capital Allocation Across Search, YouTube, Cloud &amp; AI</h3>
+        <p class="project-industry">Technology &amp; Digital Services</p>
+        <p class="project-desc">Structured a board-level capital allocation framework for Alphabet's $402.8B portfolio across Search, YouTube, Google Cloud, and AI. Analyzed segment operating performance, CapEx deployment, and competitive positioning using primary SEC filings and official earnings disclosures exclusively. Identified Google Cloud's margin expansion from negative to 30.1% in three years as the critical inflection point driving the 2026 capital reallocation thesis.</p>
+        <div class="project-tools">
+          <span class="tool-tag">Segment Profitability Tree</span>
+          <span class="tool-tag">CapEx-to-FCF Scenario Modeling</span>
+          <span class="tool-tag">Cloud Infrastructure Competitive Benchmarking</span>
+        </div>
+        <button class="project-btn">View Project Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+
+    <div class="project-card" onclick="openModal('p2')">
+      <img class="project-cover" src="images/img02.png" alt="Cover">
+      <div class="project-card-body">
+        <div class="project-num">02</div>
+        <div class="project-tag">Healthcare &middot; Corporate Finance &amp; Strategy</div>
+        <h3 class="project-title">Capital Allocation Strategy &mdash; Indian Private Hospital Sector</h3>
+        <p class="project-industry">Healthcare &amp; Life Sciences</p>
+        <p class="project-desc">Built a capital allocation framework for a multi-specialty hospital chain deploying &#8377;2&ndash;5k Cr across Indian private hospital markets. Decomposed ROCE across six listed chains using DuPont analysis, specialty ARPOB benchmarking, and incremental return modeling to identify where capital earns above WACC. Recommended concentrating 70% into metro brownfield specialty CoEs generating 22&ndash;25% incremental ROCE &mdash; versus 6&ndash;10% for generic greenfield builds below the WACC floor.</p>
+        <div class="project-tools">
+          <span class="tool-tag">DuPont ROCE Decomposition</span>
+          <span class="tool-tag">Incremental Return Modelling</span>
+          <span class="tool-tag">Specialty ARPOB Benchmarking</span>
+        </div>
+        <button class="project-btn">View Project Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+
+    <div class="project-card" onclick="openModal('p3')">
+      <img class="project-cover" src="images/img03.png" alt="Cover">
+      <div class="project-card-body">
+        <div class="project-num">03</div>
+        <div class="project-tag">Technology &middot; Strategy &amp; Corporate Finance</div>
+        <h3 class="project-title">SaaS Operating Margin Expansion Blueprint</h3>
+        <p class="project-industry">Technology</p>
+        <p class="project-desc">Conducted an independent margin expansion analysis for six public SaaS companies &mdash; Salesforce, ServiceNow, Snowflake, Atlassian, HubSpot, and Datadog &mdash; covering $83B in combined revenue across a seven-year dataset. Decomposed operating leverage across five structural cost levers using exclusively primary SEC 10-K filings and earnings disclosures to identify the drivers separating 30%+ FCF margin compounders from structurally loss-making peers.</p>
+        <div class="project-tools">
+          <span class="tool-tag">Gross Margin Ceiling Modeling</span>
+          <span class="tool-tag">NRR-to-Margin Lead Indicator Analysis</span>
+          <span class="tool-tag">FCF Bridge Decomposition</span>
+        </div>
+        <button class="project-btn">View Project Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+
+    <div class="project-card" onclick="openModal('p4')">
+      <img class="project-cover" src="images/img04.png" alt="Cover">
+      <div class="project-card-body">
+        <div class="project-num">04</div>
+        <div class="project-tag">Financial Services &middot; Corporate Strategy &amp; Capital Allocation</div>
+        <h3 class="project-title">Capital Reallocation Blueprint: India Digital Financial Services</h3>
+        <p class="project-industry">Financial Services &amp; Banking</p>
+        <p class="project-desc">Built a capital reallocation strategy for India's top financial institutions &mdash; HDFC Bank, ICICI Bank, SBI, Bajaj Finance, and Paytm. Decomposed ROE drivers using DuPont analysis, profit pool mapping, and capital efficiency benchmarking across FY2023&ndash;2025 primary filings. Identified &#8377;10,000+ crore in capital misallocation and produced a segment-level blueprint projecting ROE expansion from 13.7% to 17&ndash;18% by FY2030.</p>
+        <div class="project-tools">
+          <span class="tool-tag">DuPont ROE Decomposition</span>
+          <span class="tool-tag">Profit Pool Analysis</span>
+          <span class="tool-tag">Strategic Attractiveness Matrix (2&times;2)</span>
+        </div>
+        <button class="project-btn">View Project Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+
+    <div class="project-card" onclick="openModal('p5')">
+      <img class="project-cover" src="images/img05.png" alt="Cover">
+      <div class="project-card-body">
+        <div class="project-num">05</div>
+        <div class="project-tag">Pharmaceuticals &middot; Corporate &amp; Business Unit Strategy</div>
+        <h3 class="project-title">Accelerating UK Growth for AstraZeneca: A Data-Driven Strategy to Maximise Value in High-Priority NHS Therapeutic Areas</h3>
+        <p class="project-industry">Pharmaceuticals &amp; Life Sciences</p>
+        <p class="project-desc">Developed a board-ready UK growth strategy for AstraZeneca across a &pound;19.9bn NHS pharmaceutical market. Analysed five years of verified NHS spend data, mapped 14 products against NICE reimbursement status and patent timelines, and benchmarked eight global competitors to identify where genuine growth is accessible net of VPAG rebates of 26&ndash;35%. Identified Enhertu's HER2-low label expansion and the Cancer Drugs Fund's structural insulation from standard rebate calculations as the two most underappreciated growth levers in the UK portfolio. Delivered five prioritised growth plays with &pound;5.3&ndash;7.1bn in quantified cumulative upside over 2025&ndash;2029.</p>
+        <div class="project-tools">
+          <span class="tool-tag">NHSBSA Prescribing Costs &amp; NICE Technology Appraisals Database</span>
+          <span class="tool-tag">MBB Hypothesis-Driven Issue Tree &amp; Growth Attractiveness Scorecard</span>
+          <span class="tool-tag">VPAG Net Price Disaggregation Model &amp; 5-Year Revenue Opportunity Framework</span>
+        </div>
+        <button class="project-btn">View Project Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+
+    <div class="project-card" onclick="openModal('p6')">
+      <img class="project-cover" src="images/img06.png" alt="Cover">
+      <div class="project-card-body">
+        <div class="project-num">06</div>
+        <div class="project-tag">Financial Services &middot; Corporate Strategy &amp; Transaction Advisory</div>
+        <h3 class="project-title">LendingClub: From Trough to Takeoff &mdash; Strategic &amp; Financial Analysis of a Digital Marketplace Bank</h3>
+        <p class="project-industry">Financial Services &mdash; Digital Banking &amp; Consumer Lending</p>
+        <p class="project-desc">Conducted an end-to-end strategic and financial analysis of LendingClub Bank, a $10.6B digital marketplace bank navigating its first rate cycle post-charter acquisition. Verified five years of P&amp;L and balance sheet data exclusively from primary SEC filings, correcting material errors in prior analysis. Identified marketplace revenue recovery, NCO normalisation, and operating leverage as the three quantified levers separating the company's confirmed 11.9% ROTCE from its &ge;15% target.</p>
+        <div class="project-tools">
+          <span class="tool-tag">Revenue Waterfall Decomposition</span>
+          <span class="tool-tag">DuPont ROE Decomposition</span>
+          <span class="tool-tag">Data Confidence Classification</span>
+        </div>
+        <button class="project-btn">View Project Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<div class="full-width-bg" id="expertise">
+  <div class="inner">
+    <div class="section-label">Expertise</div>
+    <h2 class="section-title">Skills &amp; <em>Capabilities</em></h2>
+
+    <div class="skills-grid">
+      <div>
+        <h3 class="skill-group-title">Industries</h3>
+        <ul class="skill-list">
+          <li>Technology &amp; Digital Platforms</li>
+          <li>Financial Services &amp; FinTech</li>
+          <li>Healthcare &amp; Life Sciences</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="skill-group-title">Practice Lens</h3>
+        <ul class="skill-list">
+          <li>Corporate Strategy &amp; Portfolio Management</li>
+          <li>Growth Strategy &amp; Market Entry</li>
+          <li>Corporate Finance &amp; Capital Allocation</li>
+          <li>Competitive Strategy &amp; Market Intelligence</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="skill-group-title">Tools</h3>
+        <ul class="skill-list">
+          <li>Excel (Financial Modelling &amp; Scenario Analysis)</li>
+          <li>Power BI &amp; Tableau</li>
+          <li>SQL</li>
+          <li>PowerPoint (Slide Architecture &amp; Executive Storytelling)</li>
+          <li>Primary Source Databases (SEC EDGAR, NHSBSA, RBI Filings)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="skills-grid-bottom">
+      <div>
+        <h3 class="skill-group-title">Technical Skills</h3>
+        <ul class="skill-list">
+          <li>Strategic Financial Analysis &amp; Valuation</li>
+          <li>Market Sizing &amp; Profit Pool Analysis</li>
+          <li>Capital Allocation Frameworks</li>
+          <li>Competitive Intelligence &amp; Primary Source Research</li>
+          <li>Hypothesis-Driven Strategic Analysis</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="skill-group-title">Soft Skills</h3>
+        <ul class="skill-list">
+          <li>First-Principles Thinking</li>
+          <li>Intellectual Curiosity Under Ambiguity</li>
+          <li>Precision in Communication</li>
+          <li>Pattern Recognition Across Industries</li>
+          <li>Judgment &mdash; Knowing Which Question to Ask First</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="section-label">Recognition</div>
+  <h2 class="section-title"><em>Achievements</em></h2>
+  <div class="achievement-item"><span class="achievement-num">01</span><span class="achievement-text">Ranked in the top 20% of the graduating class for exceptional academic performance.</span></div>
+  <div class="achievement-item"><span class="achievement-num">02</span><span class="achievement-text">Awarded a &pound;3,000 merit-based scholarship by the University of Bristol for securing an offer of admission.</span></div>
+  <div class="achievement-item"><span class="achievement-num">03</span><span class="achievement-text">Received Dual offers of admission &mdash; Imperial College Business School (MSc Management, #2 worldwide) and Warwick Business School (MSc Management, #2 in the UK) in recognition of demonstrated academic merit and professional achievement in strategy and analytics.</span></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXPERIENCE & EDUCATION -->
+<section id="experience">
+  <div class="section-label">Background</div>
+  <h2 class="section-title">Experience &amp; <em>Education</em></h2>
+  <div class="exp-edu-grid">
+    <div>
+      <div class="exp-edu-heading"><em>Experience</em></div>
+      <div class="exp-item">
+        <div class="exp-date">June 2024 &mdash; Present</div>
+        <div class="exp-role">Strategy Associate</div>
+        <div class="exp-company">JB Car Rentals</div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-date">Feb 2025 &mdash; July 2025</div>
+        <div class="exp-role">Business Analyst Intern</div>
+        <div class="exp-company">Unified Mentor</div>
+      </div>
+    </div>
+    <div>
+      <div class="exp-edu-heading"><em>Education</em></div>
+      <div class="exp-item">
+        <div class="exp-date">2021 &mdash; 2024</div>
+        <div class="exp-role">BSc Life Sciences</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer-wrap">
+  <div class="footer-name">Taiba Ali &mdash; Strategy Associate</div>
+  <div class="footer-copy"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0470656d666565686d363d3435446369656d682a676b69"><span class="__cf_email__" data-cfemail="80f4e1e9e2e1e1ece9b2b9b0b1c0e7ede1e9ecaee3efed">[email&#160;protected]</span></a></div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">&#x2715;</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal">
+  <button class="modal-close" onclick="closeModal()">&#x2715;</button>
+  <div class="modal-inner" id="modalContent"></div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const P = {
+  p1:{
+    tag:'Technology · Corporate Strategy & Portfolio Management',
+    title:'Alphabet Portfolio Strategy',
+    subtitle:'Capital Allocation Across Search, YouTube, Cloud & AI',
+    industry:'Technology & Digital Services',
+    practice:'Corporate Strategy & Portfolio Management',
+    tools:['Segment Profitability Tree', 'CapEx-to-FCF Scenario Modeling', 'Cloud Infrastructure Competitive Benchmarking'],
+    overview:'Structured a board-level capital allocation framework for Alphabet’s $402.8B portfolio across Search, YouTube, Google Cloud, and AI. Analyzed segment operating performance, CapEx deployment, and competitive positioning using primary SEC filings and official earnings disclosures exclusively. Identified Google Cloud’s margin expansion from negative to 30.1% in three years as the critical inflection point driving the 2026 capital reallocation thesis.',
+    question:'Where should Alphabet direct its capital as Search matures, Cloud accelerates, and a $175–185B CapEx commitment reshapes the balance sheet?',
+    analysis:'Mapped segment revenue, operating income, and capital flows across FY2022–2025 using Alphabet SEC filings, quarterly earnings disclosures, and Gartner IaaS market data. Benchmarked Cloud against AWS and Azure. Tested three hypotheses against disclosed financials.',
+    insight:'Google Cloud’s margin expanded from negative to 30.1% in three years — an unusually rapid trajectory at this scale. Simultaneously, long-term debt rose from $10.9B to $46.5B in 12 months. Alphabet is pre-financing the AI infrastructure race with debt for the first time in its history.',
+    recommendation:'The $175–185B 2026 CapEx commitment is defensible, anchored by $240B in contracted Cloud backlog. Prioritise Cloud infrastructure. The single unresolved risk — AI Overviews’ per-query monetization — is unmeasurable from public data and requires dedicated primary research.',
+    impact:'Reframes the investment thesis: Google Cloud is no longer a growth bet — it is an emerging cash engine. Capital allocation decisions should reflect that transition.',
+    slides:["images/img07.png","images/img08.png","images/img09.png","images/img10.png","images/img11.png","images/img12.png"]
+  },
+  p2:{
+    tag:'Healthcare & Life Sciences · Corporate Finance & Strategy',
+    title:'Capital Allocation Strategy — Indian Private Hospital Sector',
+    subtitle:'Corporate Finance & Strategy',
+    industry:'Healthcare & Life Sciences',
+    practice:'Corporate Finance & Strategy',
+    tools:['DuPont ROCE Decomposition', 'Incremental Return Modelling', 'Specialty ARPOB Benchmarking'],
+    overview:'Built a capital allocation framework for a multi-specialty hospital chain deploying ₹2–5k Cr across Indian private hospital markets. Decomposed ROCE across six listed chains using DuPont analysis, specialty ARPOB benchmarking, and incremental return modeling to identify where capital earns above WACC. Recommended concentrating 70% into metro brownfield specialty CoEs generating 22–25% incremental ROCE — versus 6–10% for generic greenfield builds below the WACC floor.',
+    question:'Where should a multi-specialty hospital chain deploy ₹2–5k Cr to generate ROCE above WACC — not just grow bed count?',
+    analysis:'DuPont decomposition across six listed chains (504 data points, FY2018–FY2024) isolated EBIT margin and asset turnover as independent ROCE drivers. Benchmarked ARPOB across 13 specialties and modelled 5-year incremental ROCE for brownfield versus greenfield scenarios with full capex, ramp, and occupancy assumptions.',
+    insight:'Asset turnover — not margin — is the primary ROCE differentiator. Narayana delivers 17.5% ROCE on the sector’s lowest margin (21%) via 1.2× asset turnover. Metro hospitals generate 1.7× ARPOB structurally, driven by payor mix — not geography. A Tier-2 greenfield returns 6–10% incremental ROCE, structurally below the 12–14% WACC floor.',
+    recommendation:'Deploy 70% into metro brownfield specialty CoEs at ≥18% ROCE hurdle. 20% into asset-light Tier-2 via management contracts only. 10% into pharmacy and diagnostics adjacencies. No generic greenfield approvals.',
+    impact:'Brownfield specialty CoEs deliver 22–25% incremental ROCE versus 6–10% for greenfield — a 2–3× return differential on identical capital outlay.',
+    slides:["images/img13.png","images/img14.png","images/img15.png","images/img16.png","images/img17.png","images/img18.png","images/img19.png"]
+  },
+  p3:{
+    tag:'Technology · Strategy & Corporate Finance',
+    title:'SaaS Operating Margin Expansion Blueprint',
+    subtitle:'A Blueprint for Operating Leverage at Scale',
+    industry:'Technology',
+    practice:'Strategy & Corporate Finance',
+    tools:['Gross Margin Ceiling Modeling', 'NRR-to-Margin Lead Indicator Analysis', 'FCF Bridge Decomposition'],
+    overview:'Conducted an independent margin expansion analysis for six public SaaS companies — Salesforce, ServiceNow, Snowflake, Atlassian, HubSpot, and Datadog — covering $83B in combined revenue across a seven-year dataset. Decomposed operating leverage across five structural cost levers using exclusively primary SEC 10-K filings and earnings disclosures to identify the drivers separating 30%+ FCF margin compounders from structurally loss-making peers.',
+    question:'Why do structurally similar SaaS companies diverge by 40–60 percentage points in operating margin at scale — and which lever, prioritized first, produces the largest return?',
+    analysis:'Decomposed P&L architecture across six public SaaS companies ($83B combined revenue, 2018–2025) using SEC 10-K filings and earnings releases. Applied a five-lever profitability tree — S&M efficiency, gross margin, R&D productivity, G&A dilution, and SBC normalization — across the full cohort simultaneously.',
+    insight:'Margin inflection is a governance event, not an operational one. Salesforce’s 1,570 bps GAAP improvement in two years followed a board-level Rule of 40 commitment — not incremental efficiency. Gross margin architecture sets a hard ceiling: Snowflake’s 66.7% GM mathematically caps long-run operating margin regardless of all other improvements.',
+    recommendation:'Prioritize S&M compression first (1,500–2,000 bps potential). Anchor board accountability to FCF margin, not non-GAAP operating margin. Monitor NRR as the leading indicator — it precedes margin divergence by 12–18 months.',
+    impact:'Companies executing all five levers reach 30–35% non-GAAP operating margins within 3–5 years of crossing $3B ARR — the documented trajectory of Salesforce and ServiceNow.',
+    slides:["images/img20.png","images/img21.png","images/img22.png","images/img23.png","images/img24.png","images/img25.png"]
+  },
+  p4:{
+    tag:'Financial Services & Banking · Corporate Strategy & Capital Allocation',
+    title:'Capital Reallocation Blueprint: India Digital Financial Services',
+    subtitle:'Corporate Strategy & Capital Allocation',
+    industry:'Financial Services & Banking',
+    practice:'Corporate Strategy & Capital Allocation',
+    tools:['DuPont ROE Decomposition', 'Profit Pool Analysis', 'Strategic Attractiveness Matrix (2×2)'],
+    overview:'Built a capital reallocation strategy for India’s top financial institutions — HDFC Bank, ICICI Bank, SBI, Bajaj Finance, and Paytm. Decomposed ROE drivers using DuPont analysis, profit pool mapping, and capital efficiency benchmarking across FY2023–2025 primary filings. Identified ₹10,000+ crore in capital misallocation and produced a segment-level blueprint projecting ROE expansion from 13.7% to 17–18% by FY2030.',
+    question:'Where should a leading Indian financial institution deploy ₹10,000–12,000 crore of incremental capital to structurally lift ROE above the 14–15% cost of equity by FY2030?',
+    analysis:'DuPont decomposition, profit pool mapping, and capital efficiency benchmarking across HDFC Bank, ICICI Bank, SBI, Bajaj Finance, and Paytm — using only primary institutional filings (FY2023–FY2025).',
+    insight:'ROE ranges from 19.2% (Bajaj Finance) to –10.8% (Paytm) within the same ecosystem. Unsecured credit is deteriorating — Bajaj Finance provisions up 72% to ₹7,966 crore. Payments is structurally unmonetisable — Paytm earned ₹70 crore in UPI incentive on ₹18.9 lakh crore GMV. Wealth management delivers 28–40% ROE on near-zero capital.',
+    recommendation:'Allocate 40% to retail secured and MSME lending, 20% to wealth management, 12% to bancassurance. Restrict payments to a customer acquisition budget — not a standalone P&L.',
+    impact:'Projected ROE expansion from 13.7% to 17–18% by FY2030, supporting a P/B re-rating from 2.5x to 3.2–3.5x — implying ₹3–4 lakh crore in incremental market value.',
+    slides:["images/img26.png","images/img27.png","images/img28.png","images/img29.png","images/img30.png","images/img31.png","images/img32.png","images/img33.png","images/img34.png"]
+  },
+  p5:{
+    tag:'Pharmaceuticals & Life Sciences · Corporate & Business Unit Strategy',
+    title:'Accelerating UK Growth for AstraZeneca',
+    subtitle:'A Data-Driven Strategy to Maximise Value in High-Priority NHS Therapeutic Areas',
+    industry:'Pharmaceuticals & Life Sciences',
+    practice:'Corporate & Business Unit Strategy',
+    tools:['NHSBSA Prescribing Costs & NICE Technology Appraisals Database', 'MBB Hypothesis-Driven Issue Tree & Growth Attractiveness Scorecard', 'VPAG Net Price Disaggregation Model & 5-Year Revenue Opportunity Framework'],
+    overview:'Developed a board-ready UK growth strategy for AstraZeneca across a £19.9bn NHS pharmaceutical market. Analysed five years of verified NHS spend data, mapped 14 products against NICE reimbursement status and patent timelines, and benchmarked eight global competitors to identify where genuine growth is accessible net of VPAG rebates of 26–35%. Identified Enhertu’s HER2-low label expansion and the Cancer Drugs Fund’s structural insulation from standard rebate calculations as the two most underappreciated growth levers in the UK portfolio. Delivered five prioritised growth plays with £5.3–7.1bn in quantified cumulative upside over 2025–2029.',
+    question:'Where should AstraZeneca concentrate UK commercial investment to maximise growth net of VPAG rebates of 26–35%, NICE gatekeeping, and Forxiga’s loss of exclusivity in 2026?',
+    analysis:'Mapped five years of NHSBSA spend data by BNF chapter. Benchmarked 14 AZ products against NICE status and patent timelines. Scored ten therapeutic segments across six dimensions. Disaggregated VPAG rebate rates by product category to identify structurally lower-rebate pockets.',
+    insight:'BNF Chapter 8 grew 20% in three years despite VPAG — Cancer Drugs Fund agreements operate as individual outcomes-based contracts outside the standard rebate calculation, making oncology a structurally protected growth pocket. Enhertu’s HER2-low expansion alone represents a £250–400m+ annual UK opportunity currently absent from the portfolio narrative.',
+    recommendation:'Concentrate investment across five plays: Oncology label expansion, Pipeline acceleration, CVRM deep penetration, Rare disease scale-up, and Next-gen Respiratory — in that priority order.',
+    impact:'£5.3–7.1bn cumulative UK net revenue upside over 2025–2029, against a current ~£1.1bn annual run-rate. Every figure sourced from primary public data. Zero hypothetical inputs.',
+    slides:["images/img35.png","images/img36.png","images/img37.png","images/img38.png","images/img39.png","images/img40.png"]
+  },
+  p6:{
+    tag:'Financial Services — Digital Banking · Corporate Strategy & Transaction Advisory',
+    title:'LendingClub: From Trough to Takeoff',
+    subtitle:'Strategic & Financial Analysis of a Digital Marketplace Bank',
+    industry:'Financial Services — Digital Banking & Consumer Lending',
+    practice:'Corporate Strategy & Transaction Advisory',
+    tools:['Revenue Waterfall Decomposition', 'DuPont ROE Decomposition', 'Data Confidence Classification'],
+    overview:'Conducted an end-to-end strategic and financial analysis of LendingClub Bank, a $10.6B digital marketplace bank navigating its first rate cycle post-charter acquisition. Verified five years of P&L and balance sheet data exclusively from primary SEC filings, correcting material errors in prior analysis. Identified marketplace revenue recovery, NCO normalisation, and operating leverage as the three quantified levers separating the company’s confirmed 11.9% ROTCE from its ≥15% target.',
+    question:'LendingClub acquired a national bank charter in 2021 and entered its first rate cycle as a deposit-funded institution. The question: was the FY2022–2023 deterioration structural or cyclical — and what closes the remaining gap to ≥15% ROTCE?',
+    analysis:'Five years of P&L and balance sheet data verified exclusively from SEC filings and earnings releases. Applied MECE root cause decomposition, DuPont ROE analysis, and a three-scenario forward model. Every figure confidence-rated: confirmed, derived, or estimated.',
+    insight:'The deterioration was cyclical. The $430M marketplace revenue collapse reflected institutional buyer retreat during rate hikes — not competitive loss. NII held. Credit normalised: Q4 NCO fell 210bps year-over-year. The Structured Certificates programme ($4.7B+ sold) restored fee income without warehousing credit risk.',
+    recommendation:'Prioritise marketplace revenue rate recovery and deposit mix quality over further volume growth. Capital is not the constraint — CET1 at 17.3% is well above regulatory minimums. The operating model requires ROA improvement, not leverage.',
+    impact:'Three confirmed levers — marketplace recovery, sustained NCO normalisation, and operating leverage on a near-fixed cost base — define the forward operating model. Each is already moving. Execution risk, not diagnosis, is what remains open.',
+    slides:["images/img41.png","images/img42.png","images/img43.png","images/img44.png","images/img45.png","images/img46.png"]
+  }
+};
+
+function openModal(id) {
+  const p = P[id];
+  window._ssIdx = 0;
+  window._ssTotal = p.slides ? p.slides.length : 0;
+
+  const slideshowHtml = p.slides ? `
+    <div class="modal-slideshow">
+      <div class="modal-section-title" style="font-size:0.62rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;display:flex;align-items:center;gap:1rem;">Project Slides<span style="flex:1;height:1px;background:rgba(255,255,255,0.08);display:block;margin-left:1rem;"></span></div>
+      <div class="slideshow-wrap">
+        <div class="slideshow-track" id="ssTrack">
+          ${p.slides.map(s=>`<div class="slideshow-slide"><img src="${s}" alt="Slide"></div>`).join('')}
+        </div>
+        <button class="slideshow-btn prev" onclick="ssNav(-1)">&#8592;</button>
+        <button class="slideshow-btn next" onclick="ssNav(1)">&#8594;</button>
+      </div>
+      <div class="slideshow-dots" id="ssDots">
+        ${p.slides.map((_,i)=>`<div class="slideshow-dot${i===0?' active':''}" onclick="ssGo(${i})"></div>`).join('')}
+      </div>
+      <div class="slideshow-counter" id="ssCounter">1 / ${p.slides.length}</div>
+    </div>
+  ` : '';
+
+  document.getElementById('modalContent').innerHTML = `
+    <div class="modal-tag">${p.tag}</div>
+    <h2 class="modal-title">${p.title}</h2>
+    <p class="modal-subtitle">${p.subtitle}</p>
+    <div class="modal-meta">
+      <div><div class="modal-meta-label">Industry</div><div class="modal-meta-value">${p.industry}</div></div>
+      <div><div class="modal-meta-label">Practice Area</div><div class="modal-meta-value">${p.practice}</div></div>
+    </div>
+    <div class="modal-section"><div class="modal-section-title">Overview</div><div class="modal-body">${p.overview}</div></div>
+    <div class="modal-section"><div class="modal-section-title">Strategic Question</div><div class="modal-highlight">${p.question}</div></div>
+    <div class="modal-section"><div class="modal-section-title">Analysis</div><div class="modal-body">${p.analysis}</div></div>
+    <div class="modal-section"><div class="modal-section-title">Key Insight</div><div class="modal-body">${p.insight}</div></div>
+    <div class="modal-section"><div class="modal-section-title">Recommendation</div><div class="modal-body">${p.recommendation}</div></div>
+    <div class="modal-section"><div class="modal-section-title">Impact</div><div class="modal-body">${p.impact}</div></div>
+    <div class="modal-section"><div class="modal-section-title">Tools Used</div><div class="modal-tools">${p.tools.map(t=>`<span class="modal-tool">${t}</span>`).join('')}</div></div>
+    ${slideshowHtml}
+  `;
+
+  const modal = document.getElementById('modal');
+  modal.classList.add('active');
+  modal.scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+}
+
+function ssNav(dir) {
+  const total = window._ssTotal;
+  if (!total) return;
+  window._ssIdx = (window._ssIdx + dir + total) % total;
+  ssRender();
+}
+function ssGo(idx) {
+  window._ssIdx = idx;
+  ssRender();
+}
+function ssRender() {
+  const idx = window._ssIdx;
+  const total = window._ssTotal;
+  const track = document.getElementById('ssTrack');
+  const counter = document.getElementById('ssCounter');
+  const dots = document.querySelectorAll('.slideshow-dot');
+  if (track) track.style.transform = `translateX(-${idx * 100}%)`;
+  if (counter) counter.textContent = `${idx + 1} / ${total}`;
+  dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('modal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+function openLightbox(src) {
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('lightbox').addEventListener('click', function(e) {
+  if (e.target === this || e.target === document.getElementById('lightboxImg')) closeLightbox();
+});
+
+// Custom cursor
+const dot = document.getElementById('cursorDot');
+const ring = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+});
+function animateRing() {
+  
+  rx += (mx - rx) * 0.1; ry += (my - ry) * 0.1;
+  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+  req
